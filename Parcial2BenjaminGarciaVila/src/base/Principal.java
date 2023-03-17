@@ -57,34 +57,38 @@ import datos.DispositivoAndroid;
 import datos.DispositivoIos;
 import datos.DispositivoMovil;
 
+
 public class Principal {
-//VARIABLES GLOBALES
+	//VARIABLES GLOBALES
 	static Scanner sc = new Scanner(System.in);
 	static ArrayList<DispositivoMovil> listadomoviles = new ArrayList<DispositivoMovil>();
-
+	/**
+	 * Metodo principal usado para llamar al menu y las diferentes opciones
+	 */
 	public static void main(String[] args) {
 	// TODO Auto-generated method stub
 	Menu.menuPrincipal();
 	sc.close();
 	}
-
+/************************************************************************************
+ * Metodo AltaDispositivoAndroid() Da de alta los moviles tipo Android Menu 1.1    **
+ ***********************************************************************************/
 public static void AltaDispositivoAndroid() {
 	String marca,tipo,modelo,color;
-	
 	System.out.println("Alta de moviles tipo android: ");
 	marca = solicitarDato("marca de movil tipo android");
 	tipo = solicitarDato("tipo");
 	modelo = solicitarModeloAndroid ();
 	color = solicitarDato ("color");
 		
-	//Instanciamos, construimos el objeto email utilizando el constructor completo
+	//Instanciamos, construimos el objeto DispositivoAndroid utilizando el constructor completo
 	DispositivoAndroid androidAux = new DispositivoAndroid(marca,tipo,modelo,color);
-	//añadimos el objeto(ficha) sms al listado de Mensajes
+	//añadimos el objeto(ficha) DispositivoAndroid al listado de Moviles
 	listadomoviles.add(androidAux);
 }
-/**
- * Metodo mostrarListadoAndroid() Muestra los moviles tipo Android Menu 2.2
- */
+/****************************************************************************
+ * Metodo mostrarListadoAndroid() Muestra los moviles tipo Android Menu 1.2**
+ ****************************************************************************/
 public static void mostrarListadoAndroid() {
 	int contadorAndroids =0;
 	if( listadomoviles.isEmpty()) {
@@ -102,12 +106,16 @@ public static void mostrarListadoAndroid() {
 			System.out.println("La lista de moviles no contiene ningun telefono tipo android");
 		}else {
 			System.out.println("La lista de moviles contiene: " + contadorAndroids + "telefono(S) tipo Android");
-		}
+			  }
 	}
-	
 }
 
 public static void Examen() {}
+
+/****************************************************************************
+ * Metodo AltaDispositivoIos() Da de alta los moviles tipo ios Menu 2.1    **
+ ****************************************************************************/
+
 public static void AltaDispositivoIos() {
 String marca,tipo,modelo,color;
 	
@@ -122,6 +130,9 @@ String marca,tipo,modelo,color;
 	//añadimos el objeto(ficha) sms al listado de Mensajes
 	listadomoviles.add(iosAux);
 }
+/****************************************************************************
+ * Metodo mostrarListadoAndroid() Muestra los moviles tipo IOS Menu 2.2    **
+ ****************************************************************************/
 public static void mostrarListadoIos() {
 	int contadorIos =0;
 	if( listadomoviles.isEmpty()) {
@@ -149,63 +160,83 @@ public static void Examen2() {}
 /**
  * Metodo usado para solicitar datos generales
  * @param mensaje
- * @return
+ * @return dato
  */
 public static String solicitarDato (String mensaje) {
 	System.out.printf("introduzca " + mensaje + ": ");
 	String dato = sc.nextLine();
 	return dato;
 }	
+/**
+ * Metodo que sirve para solicitar el dato de model de telefono tipo IOS
+ * @return modelo
+ */
 public static String solicitarModeloIos(){
 	String modelo;
 	int posicion;
 	do {
 		System.out.println("introduzca modelo de dispositivo IOS");
 		modelo = sc.nextLine();
-		posicion = buscarModelo(modelo, "ios");
+		posicion = buscarModeloIos(modelo, "ios");
 		if (posicion != -1) {
 			System.out.println("El modelo que ha introducido ya existe");
 		}
 	}while (posicion != -1);
-	posicion = -1;
 	return modelo;
 	
 }
+/**
+ * Metodo que sirve para solicitar el dato de model de telefono tipo android
+ * @return modelo
+ */
 public static String solicitarModeloAndroid(){
 	String modelo;
 	int posicion;
 	do {
 		System.out.println("introduzca modelo de dispositivo Android");
 		modelo = sc.nextLine();
-		posicion = buscarModelo(modelo, "android");
+		posicion = buscarModeloAndroid(modelo, "android");
 		if (posicion != -1) {
 			System.out.println("El modelo que ha introducido ya existe");
 		}
 	}while (posicion != -1);
-	posicion = -1;
 	return modelo;
 	
 }
-public static int buscarModelo(String modelo, String tipoClaseMensaje) {
-	int posicion = -1; //guardo la posicion  -1 si no existe
+/**
+ * Metodo que usamos para buscar si el modelo introducido de ios esta repetido
+ * @param modelo
+ * @param tipoClaseMensaje
+ * @return posicion
+ */
+
+public static int buscarModeloIos(String modelo, String tipoClaseMensaje) {
+	int posicion = -1; //guardo la posicion -1 si no existe
 	for(int i=0; i<listadomoviles.size(); i++) {
-		if(listadomoviles.get(i).getModelo().equals(modelo)) {  //modelo encontrado
-			//revisamos que tipo de modelo es
-			
-				if (tipoClaseMensaje.equals("ios")) {
-				if(listadomoviles.get(i) instanceof DispositivoIos) {
-					posicion = i;
-				}
-			} else if (tipoClaseMensaje.equals("android")) {
-				if(listadomoviles.get(i) instanceof DispositivoAndroid) {
-					posicion = i;
-				}
-			}
+		if(listadomoviles.get(i) instanceof DispositivoIos &&((DispositivoIos) listadomoviles.get(i)).getModelo().equals(modelo)){
+			posicion = i;
 			break;
 		}
 	}
 	return posicion;
+}	
+/**
+ * Metodo que usamos para buscar si el modelo introducido de Android esta repetido
+ * @param modelo
+ * @param tipoClaseMensaje
+ * @return posicion
+ */
+public static int buscarModeloAndroid(String modelo, String tipoClaseMensaje) {
+			int posicion = -1; //guardo la posicion , -1 si no existe
+			for(int i=0; i<listadomoviles.size(); i++) {
+				if(listadomoviles.get(i) instanceof DispositivoAndroid &&((DispositivoAndroid) listadomoviles.get(i)).getModelo().equals(modelo)){
+				posicion = i;
+				break;
+				}		
+			}
+ return posicion;
+ }
 }
-}
+
 	
 
