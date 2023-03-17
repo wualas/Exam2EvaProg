@@ -77,15 +77,29 @@ public void setColor(String color) {
 /**
  * Metodos propios de la clase
  */
-public void llamar() {
+public String llamar() {
+	return "llamada desde movil normal";
 		
 }
-public void colgar() {
-	
+public String colgar() {
+	return "colgar desde movil normal";
 }
-public void buscar() {
-	
+public String buscar() {
+	return "buscar desde movil normal";
 }
+/**
+ * metodo tostring
+ */
+ 
+	@Override
+	public String toString() {
+	return " ->Dispositivos moviles: "
+	+ "\n marca:" + this.marca 
+	+ "\n tipo:" + this.tipo + "\n"
+	+ "\n modelo:" + this.modelo + "\n"
+	+ "\n color:" + this.color + "\n";
+		}
+
 }
 
 

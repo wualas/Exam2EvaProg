@@ -90,7 +90,32 @@ public class DispositivoAndroid extends DispositivoMovil {
 		
 	}
 	
-	
-	
+	/**
+	 * metodo tostring
+	 */
+	 
+		@Override
+		public String toString() {
+		return " ->Dispositivos moviles: \n"
+		+ "\n marca:" + this.marca +"\n"
+		+ "\n tipo:" + this.tipo + "\n"
+		+ "\n modelo:" + this.modelo + "\n"
+		+ "\n color:" + this.color + "\n";
+			}
+	/**
+	 * Metodos propios de la clase	
+	 */
+		@Override
+		public String llamar() {
+			return "LLamada desde un Smartphone Android";
+		}
+		@Override
+		public String colgar() {
+			return "Deslice para colgar la llamada desde un Smartphone Android”.";
+		}
+		@Override
+		public String buscar() {
+			return "Abrir agenda desde un Smartphone Android";
+		}
 	
 }

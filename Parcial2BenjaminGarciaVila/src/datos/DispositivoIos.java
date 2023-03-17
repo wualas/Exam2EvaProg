@@ -88,5 +88,29 @@ public class DispositivoIos extends DispositivoMovil{
 		return "Accediendo a la redes sociales desde Smartphone iOS";
 		
 	}
+	/**
+	 * metodo tostring
+	 */
+	 
+		@Override
+		public String toString() {
+		return " ->Dispositivos moviles: \n "
+		+ "\n marca:" + this.marca + "\n"
+		+ "\n tipo:" + this.tipo + "\n"
+		+ "\n modelo:" + this.modelo + "\n"
+		+ "\n color:" + this.color + "\n";
+		}
+		@Override
+		public String llamar() {
+			return "LLamada de voz desde un Smartphone iOS";
+		}
+		@Override
+		public String colgar() {
+			return "Pulsación larga para colgar la llamada desde un Smartphone iOS";
+		}
+		@Override
+		public String buscar() {
+			return "Abrir agenda de contactos desde un Smartphone iOS";
+		}
 }
 

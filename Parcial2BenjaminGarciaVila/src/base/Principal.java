@@ -60,6 +60,7 @@ import datos.DispositivoMovil;
 
 
 
+
 public class Principal {
 //VARIABLES GLOBALES
 	static Scanner sc = new Scanner(System.in);
@@ -71,14 +72,94 @@ public class Principal {
 	sc.close();
 	}
 
-public static void AltaDispositivoAndroid() {}
-public static void mostrarListadoAndroid() {}
+public static void AltaDispositivoAndroid() {
+	String marca,tipo,modelo,color;
+	
+	System.out.println("Alta de moviles tipo android: ");
+	marca = solicitarDato("marca de movil tipo android");
+	tipo = solicitarDato("tipo");
+	modelo = solicitarDato ("modelo");
+	color = solicitarDato ("color");
+		
+	//Instanciamos, construimos el objeto email utilizando el constructor completo
+	DispositivoAndroid androidAux = new DispositivoAndroid(marca,tipo,modelo,color);
+	//añadimos el objeto(ficha) sms al listado de Mensajes
+	listadomoviles.add(androidAux);
+}
+/**
+ * Metodo mostrarListadoAndroid() Muestra los moviles tipo Android Menu 2.2
+ */
+public static void mostrarListadoAndroid() {
+	int contadorAndroids =0;
+	if( listadomoviles.isEmpty()) {
+		System.out.println("Lista de moviles esta vacia");
+	}else {
+		//Recorresmos lista de moviles y para cada posicion verificamos que tipo de ficha es
+		for( int i=0; i<listadomoviles.size();i++) {
+			//comprobamos de que tipo de clase es la ficha actual de la lista de mensajes
+			if (listadomoviles.get(i) instanceof DispositivoAndroid){
+				System.out.println((DispositivoAndroid)listadomoviles.get(i));//se invoca el metodo tostring()
+				contadorAndroids++;
+			}
+		}
+		if (contadorAndroids == 0) {
+			System.out.println("La lista de moviles no contiene ningun telefono tipo android");
+		}else {
+			System.out.println("La lista de moviles contiene: " + contadorAndroids + "telefono(S) tipo Android");
+		}
+	}
+	
+}
+
 public static void Examen() {}
-public static void AltaDispositivoIos() {}
-public static void mostrarListadoIos() {}
+public static void AltaDispositivoIos() {
+String marca,tipo,modelo,color;
+	
+	System.out.println("Alta de moviles tipo IOS: ");
+	marca = solicitarDato("marca de movil tipo IOS");
+	tipo = solicitarDato("tipo");
+	modelo = solicitarDato ("modelo");
+	color = solicitarDato ("color");
+		
+	//Instanciamos, construimos el objeto email utilizando el constructor completo
+	DispositivoIos iosAux = new DispositivoIos(marca,tipo,modelo,color);
+	//añadimos el objeto(ficha) sms al listado de Mensajes
+	listadomoviles.add(iosAux);
+}
+public static void mostrarListadoIos() {
+	int contadorIos =0;
+	if( listadomoviles.isEmpty()) {
+		System.out.println("Lista de moviles esta vacia");
+	}else {
+		//Recorresmos lista de moviles y para cada posicion verificamos que tipo de ficha es
+		for( int i=0; i<listadomoviles.size();i++) {
+			//comprobamos de que tipo de clase es la ficha actual de la lista de mensajes
+			if (listadomoviles.get(i) instanceof DispositivoIos){
+				System.out.println((DispositivoIos)listadomoviles.get(i));//se invoca el metodo tostring()
+				contadorIos++;
+			}
+		}
+		if (contadorIos == 0) {
+			System.out.println("La lista de moviles no contiene ningun telefono tipo IOS");
+		}else {
+			System.out.println("La lista de moviles contiene: " + contadorIos + "telefono(S) tipo IOS");
+		}
+	}
+	
+}
+
 public static void Examen2() {}
 	
-	
+/**
+ * Metodo usado para solicitar datos generales
+ * @param mensaje
+ * @return
+ */
+public static String solicitarDato (String mensaje) {
+	System.out.printf("introduzca " + mensaje + ": ");
+	String dato = sc.nextLine();
+	return dato;
+}	
 	
 	
 }
