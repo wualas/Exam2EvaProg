@@ -8,10 +8,10 @@ package datos;
 
 public class DispositivoIos extends DispositivoMovil{
 //*************ATRIBUTOS**********
-	public String marca;  
-	public String tipo;
-	public String modelo;  //campo clave - validado
-	public String color;
+	private String marca;  
+	private String tipo;
+	private String modelo;  //campo clave - validado
+	private String color;
 	/**
 	 * 
 	 */
