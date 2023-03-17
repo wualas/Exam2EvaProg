@@ -52,14 +52,10 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import utilidades.Menu;
+
 import datos.DispositivoAndroid;
 import datos.DispositivoIos;
 import datos.DispositivoMovil;
-
-
-
-
-
 
 public class Principal {
 //VARIABLES GLOBALES
@@ -78,7 +74,7 @@ public static void AltaDispositivoAndroid() {
 	System.out.println("Alta de moviles tipo android: ");
 	marca = solicitarDato("marca de movil tipo android");
 	tipo = solicitarDato("tipo");
-	modelo = solicitarDato ("modelo");
+	modelo = solicitarModeloAndroid ();
 	color = solicitarDato ("color");
 		
 	//Instanciamos, construimos el objeto email utilizando el constructor completo
@@ -118,7 +114,7 @@ String marca,tipo,modelo,color;
 	System.out.println("Alta de moviles tipo IOS: ");
 	marca = solicitarDato("marca de movil tipo IOS");
 	tipo = solicitarDato("tipo");
-	modelo = solicitarDato ("modelo");
+	modelo = solicitarModeloIos();
 	color = solicitarDato ("color");
 		
 	//Instanciamos, construimos el objeto email utilizando el constructor completo
@@ -160,6 +156,56 @@ public static String solicitarDato (String mensaje) {
 	String dato = sc.nextLine();
 	return dato;
 }	
-	
+public static String solicitarModeloIos(){
+	String modelo;
+	int posicion;
+	do {
+		System.out.println("introduzca modelo de dispositivo IOS");
+		modelo = sc.nextLine();
+		posicion = buscarModelo(modelo, "ios");
+		if (posicion != -1) {
+			System.out.println("El modelo que ha introducido ya existe");
+		}
+	}while (posicion != -1);
+	posicion = -1;
+	return modelo;
 	
 }
+public static String solicitarModeloAndroid(){
+	String modelo;
+	int posicion;
+	do {
+		System.out.println("introduzca modelo de dispositivo Android");
+		modelo = sc.nextLine();
+		posicion = buscarModelo(modelo, "android");
+		if (posicion != -1) {
+			System.out.println("El modelo que ha introducido ya existe");
+		}
+	}while (posicion != -1);
+	posicion = -1;
+	return modelo;
+	
+}
+public static int buscarModelo(String modelo, String tipoClaseMensaje) {
+	int posicion = -1; //guardo la posicion  -1 si no existe
+	for(int i=0; i<listadomoviles.size(); i++) {
+		if(listadomoviles.get(i).getModelo().equals(modelo)) {  //modelo encontrado
+			//revisamos que tipo de modelo es
+			
+				if (tipoClaseMensaje.equals("ios")) {
+				if(listadomoviles.get(i) instanceof DispositivoIos) {
+					posicion = i;
+				}
+			} else if (tipoClaseMensaje.equals("android")) {
+				if(listadomoviles.get(i) instanceof DispositivoAndroid) {
+					posicion = i;
+				}
+			}
+			break;
+		}
+	}
+	return posicion;
+}
+}
+	
+
