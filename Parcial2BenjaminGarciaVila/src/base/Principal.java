@@ -105,7 +105,7 @@ public static void mostrarListadoAndroid() {
 		if (contadorAndroids == 0) {
 			System.out.println("La lista de moviles no contiene ningun telefono tipo android");
 		}else {
-			System.out.println("La lista de moviles contiene: " + contadorAndroids + "telefono(S) tipo Android");
+			System.out.println("La lista de moviles contiene: " + contadorAndroids + " telefono(S) tipo Android");
 			  }
 	}
 }
@@ -149,7 +149,7 @@ public static void mostrarListadoIos() {
 		if (contadorIos == 0) {
 			System.out.println("La lista de moviles no contiene ningun telefono tipo IOS");
 		}else {
-			System.out.println("La lista de moviles contiene: " + contadorIos + "telefono(S) tipo IOS");
+			System.out.println("La lista de moviles contiene: " + contadorIos + " telefono(S) tipo IOS");
 		}
 	}
 	

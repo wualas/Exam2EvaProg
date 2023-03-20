@@ -35,7 +35,8 @@ public class DispositivoAndroid extends DispositivoMovil {
 		 return super.toString()
 		 + "\n  llamar()=" + llamar()
 		 + "\n  colgar()=" + colgar()
-		 + "\n  buscar()=" + buscar();
+		 + "\n  buscar()=" + buscar()
+		 + "\n";
 	}
 
 
