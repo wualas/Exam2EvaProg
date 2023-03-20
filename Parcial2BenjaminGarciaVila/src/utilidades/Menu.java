@@ -88,7 +88,7 @@ public class Menu {
 	    		break;
 	    	
 	    	case 2:
-	    		Principal.mostrarListadoAndroid();
+	    		Principal.mostrarListado();
 	    		break;
 	    	case 3:
 	    		Principal.Examen();
@@ -106,7 +106,7 @@ public class Menu {
 	    		Principal.AltaDispositivoIos();
 	    		break;
 	    	case 2:
-	    		Principal.mostrarListadoIos();
+	    		Principal.mostrarListado();
 	    		break;
 	    	case 3:
 	    		Principal.Examen2();

@@ -58,6 +58,7 @@ import datos.DispositivoIos;
 import datos.DispositivoMovil;
 
 
+
 public class Principal {
 	//VARIABLES GLOBALES
 	static Scanner sc = new Scanner(System.in);
@@ -86,29 +87,7 @@ public static void AltaDispositivoAndroid() {
 	//añadimos el objeto(ficha) DispositivoAndroid al listado de Moviles
 	listadomoviles.add(androidAux);
 }
-/****************************************************************************
- * Metodo mostrarListadoAndroid() Muestra los moviles tipo Android Menu 1.2**
- ****************************************************************************/
-public static void mostrarListadoAndroid() {
-	int contadorAndroids =0;
-	if( listadomoviles.isEmpty()) {
-		System.out.println("Lista de moviles esta vacia");
-	}else {
-		//Recorresmos lista de moviles y para cada posicion verificamos que tipo de ficha es
-		for( int i=0; i<listadomoviles.size();i++) {
-			//comprobamos de que tipo de clase es la ficha actual de la lista de mensajes
-			if (listadomoviles.get(i) instanceof DispositivoAndroid){
-				System.out.println((DispositivoAndroid)listadomoviles.get(i));//se invoca el metodo tostring()
-				contadorAndroids++;
-			}
-		}
-		if (contadorAndroids == 0) {
-			System.out.println("La lista de moviles no contiene ningun telefono tipo android");
-		}else {
-			System.out.println("La lista de moviles contiene: " + contadorAndroids + " telefono(S) tipo Android");
-			  }
-	}
-}
+
 
 public static void Examen() {}
 
@@ -127,32 +106,49 @@ String marca,tipo,modelo,color;
 		
 	//Instanciamos, construimos el objeto email utilizando el constructor completo
 	DispositivoIos iosAux = new DispositivoIos(marca,tipo,modelo,color);
-	//añadimos el objeto(ficha) sms al listado de Mensajes
+	//añadimos el objeto(ficha) Dispositivo IOS al listado de Telefonos
 	listadomoviles.add(iosAux);
 }
-/****************************************************************************
- * Metodo mostrarListadoAndroid() Muestra los moviles tipo IOS Menu 2.2    **
- ****************************************************************************/
-public static void mostrarListadoIos() {
+
+/*********************************************************************************************************************************
+ * Metodo mostrarListado, lo usaremos indistintamente para mostrar el listado de telefono diferenciando tipo android de tipo IOS**
+ * Mostrar el listado de todos los moviles de la lista . Menu 1.2 y Menu 2.2                                                    **
+ *********************************************************************************************************************************/
+public static void mostrarListado() {
+	System.out.println("******LISTA DE MOVILES********");
+	int contadorAndroid =0;
 	int contadorIos =0;
-	if( listadomoviles.isEmpty()) {
-		System.out.println("Lista de moviles esta vacia");
+	if (listadomoviles.isEmpty()) {
+		System.out.println("La lista de moviles esta vacia");
 	}else {
-		//Recorresmos lista de moviles y para cada posicion verificamos que tipo de ficha es
-		for( int i=0; i<listadomoviles.size();i++) {
-			//comprobamos de que tipo de clase es la ficha actual de la lista de mensajes
-			if (listadomoviles.get(i) instanceof DispositivoIos){
-				System.out.println((DispositivoIos)listadomoviles.get(i));//se invoca el metodo tostring()
+		/*
+		 * Recorremos la lista de moviles y para cada posicion mostramos la ficha del telefono
+		 */
+		for (int i =0; i< listadomoviles.size();i++) {
+			if (listadomoviles.get(i) instanceof DispositivoAndroid){
+				System.out.println((DispositivoAndroid)listadomoviles.get(i));
+				contadorAndroid++;
+			}
+			if (listadomoviles.get(i) instanceof DispositivoIos) {
+				System.out.println((DispositivoIos)listadomoviles.get(i));
 				contadorIos++;
 			}
 		}
-		if (contadorIos == 0) {
+		// compruebo si hay Telefonos tipo Android: si no hay y solo hay del tipo IOS mensaje correspondiente,si hay telefonos tipo android indico cuantos
+		if (contadorAndroid == 0) {
+			System.out.println("La lista de moviles no contiene ningun telefono tipo android");
+		} else {
+			System.out.println("La lista de moviles contiene: " + contadorAndroid + " telefono(S) tipo Android");
+		}
+		// compruebo si hay telefonos tipo Ios: si no hay y solo hay de tipo Android mensaje correspondiente, si hay telefonos tipo Ios indico cuantos
+		if(contadorIos ==0) {
 			System.out.println("La lista de moviles no contiene ningun telefono tipo IOS");
-		}else {
+		} else {
 			System.out.println("La lista de moviles contiene: " + contadorIos + " telefono(S) tipo IOS");
 		}
-	}
 	
+	
+	}
 }
 
 public static void Examen2() {}
@@ -236,6 +232,53 @@ public static int buscarModeloAndroid(String modelo, String tipoClaseMensaje) {
 			}
  return posicion;
  }
+//****************************************************************************
+//* Metodo mostrarListadoAndroid() Muestra los moviles tipo Android Menu 1.2**
+//****************************************************************************/
+//public static void mostrarListadoAndroid() {
+//	int contadorAndroids =0;
+//	if( listadomoviles.isEmpty()) {
+//		System.out.println("Lista de moviles esta vacia");
+//	}else {
+//		//Recorresmos lista de moviles y para cada posicion verificamos que tipo de ficha es
+//		for( int i=0; i<listadomoviles.size();i++) {
+//			//comprobamos de que tipo de clase es la ficha actual de la lista de mensajes
+//			if (listadomoviles.get(i) instanceof DispositivoAndroid){
+//				System.out.println((DispositivoAndroid)listadomoviles.get(i));//se invoca el metodo tostring()
+//				contadorAndroids++;
+//			}
+//		}
+//		if (contadorAndroids == 0) {
+//			System.out.println("La lista de moviles no contiene ningun telefono tipo android");
+//		}else {
+//			System.out.println("La lista de moviles contiene: " + contadorAndroids + " telefono(S) tipo Android");
+//			  }
+//	}
+//}
+//****************************************************************************
+//* Metodo mostrarListadoAndroid() Muestra los moviles tipo IOS Menu 2.2    **
+//****************************************************************************/
+//public static void mostrarListadoIos() {
+//	int contadorIos =0;
+//	if( listadomoviles.isEmpty()) {
+//		System.out.println("Lista de moviles esta vacia");
+//	}else {
+//		//Recorresmos lista de moviles y para cada posicion verificamos que tipo de ficha es
+//		for( int i=0; i<listadomoviles.size();i++) {
+//			//comprobamos de que tipo de clase es la ficha actual de la lista de mensajes
+//			if (listadomoviles.get(i) instanceof DispositivoIos){
+//				System.out.println((DispositivoIos)listadomoviles.get(i));//se invoca el metodo tostring()
+//				contadorIos++;
+//			}
+//		}
+//		if (contadorIos == 0) {
+//			System.out.println("La lista de moviles no contiene ningun telefono tipo IOS");
+//		}else {
+//			System.out.println("La lista de moviles contiene: " + contadorIos + " telefono(S) tipo IOS");
+//		}
+//	}
+//	
+//}
 }
 
 	
