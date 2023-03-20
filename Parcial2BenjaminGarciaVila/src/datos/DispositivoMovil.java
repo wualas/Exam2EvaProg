@@ -2,10 +2,10 @@ package datos;
 
 public class DispositivoMovil {
 //*************ATRIBUTOS**********
-	protected String marca;  
-	protected String tipo;
-	protected String modelo;  //campo clave - validado
-	protected String color;
+	private String marca;  
+	private String tipo;
+	private String modelo;  //campo clave - validado
+	private String color;
 //*************CONSTRUCTORES**********
 	/**
 	 * 
@@ -93,12 +93,12 @@ public String buscar() {
  
 	@Override
 	public String toString() {
-	return " ->Dispositivos moviles: "
-	+ "\n marca:" + this.marca 
-	+ "\n tipo:" + this.tipo + "\n"
-	+ "\n modelo:" + this.modelo + "\n"
-	+ "\n color:" + this.color + "\n";
-		}
+		return " ->Dispositivos moviles: \n "
+				+ "\n marca:" + this.marca + "\n"
+				+ "\n tipo:" + this.tipo + "\n"
+				+ "\n modelo:" + this.modelo + "\n"
+				+ "\n color:" + this.color + "\n";
+				}
 
 }
 
