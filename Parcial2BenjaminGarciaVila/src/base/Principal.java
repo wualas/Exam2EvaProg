@@ -59,6 +59,8 @@ import datos.DispositivoMovil;
 
 
 
+
+
 public class Principal {
 	//VARIABLES GLOBALES
 	static Scanner sc = new Scanner(System.in);
@@ -87,9 +89,31 @@ public static void AltaDispositivoAndroid() {
 	//añadimos el objeto(ficha) DispositivoAndroid al listado de Moviles
 	listadomoviles.add(androidAux);
 }
+/**
+ * Metodo que realiza diversas acciones sobre moviles tipo android
+ */
 
-
-public static void Examen() {}
+public static void metodoAndroid() {
+	DispositivoAndroid androidAux = new DispositivoAndroid();
+	String modelo,colgar,llamar;
+	modelo = solicitarModeloAndroid2 ();
+	int posicion = -1;
+	for(int i=0; i<listadomoviles.size(); i++) {
+		if(listadomoviles.get(i) instanceof DispositivoAndroid &&((DispositivoAndroid) listadomoviles.get(i)).getModelo().equals(modelo)){
+		posicion = i;
+		break;
+		}		
+	}
+	if (posicion != -1) {
+		
+		llamar = androidAux.llamar();
+		colgar = androidAux.colgar();
+		System.out.println(llamar);
+		System.out.println(colgar);
+		
+	}
+	
+}
 
 /****************************************************************************
  * Metodo AltaDispositivoIos() Da de alta los moviles tipo ios Menu 2.1    **
@@ -150,8 +174,16 @@ public static void mostrarListado() {
 	
 	}
 }
-
-public static void Examen2() {}
+/**
+ * metodo que sirve para interactuar con un dispositivo IOS MENU 2.3
+ */
+public static void Interactuar() {
+	DispositivoIos iosAux = new DispositivoIos();
+	String interactuar;
+	interactuar = iosAux.interactuarPorRedSocial();
+	System.out.println(interactuar);
+	
+}
 	
 /**
  * Metodo usado para solicitar datos generales
@@ -231,7 +263,24 @@ public static int buscarModeloAndroid(String modelo, String tipoClaseMensaje) {
 				}		
 			}
  return posicion;
- }
+  }
+
+public static String solicitarModeloAndroid2(){
+	String modelo;
+	int posicion;
+	do {
+		System.out.println("introduzca modelo de dispositivo Android");
+		modelo = sc.nextLine();
+		posicion = buscarModeloAndroid(modelo, "android");
+		//if (posicion != -1) {
+		//	System.out.println("El modelo que ha introducido no existe en la lista");
+		//}
+	}while (posicion == -1);
+	return modelo;
+	
+}
+
+}
 //****************************************************************************
 //* Metodo mostrarListadoAndroid() Muestra los moviles tipo Android Menu 1.2**
 //****************************************************************************/
@@ -279,7 +328,7 @@ public static int buscarModeloAndroid(String modelo, String tipoClaseMensaje) {
 //	}
 //	
 //}
-}
+
 
 	
 

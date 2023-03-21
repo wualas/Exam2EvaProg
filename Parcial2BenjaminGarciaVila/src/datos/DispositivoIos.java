@@ -33,7 +33,12 @@ public class DispositivoIos extends DispositivoMovil{
 			 + "\n  llamar()=" + llamar()
 			 + "\n  colgar()=" + colgar()
 			 + "\n  buscar()=" + buscar()
+			 + "\n  interactuarPorRedSocial()=" + interactuarPorRedSocial()
 			 + "\n";
+		}
+		
+		public String interactuarPorRedSocial() {
+			return "Accediendo a las redes sociales desde Smartphone IOS";
 		}
 
 		@Override

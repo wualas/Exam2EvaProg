@@ -49,7 +49,7 @@ public class Menu {
     		System.out.println("\n \n ===   SUBMENU SMARTPHONES ANDROID   === \n");
     		System.out.println(" 1 - Alta de dispositivo");
     		System.out.println(" 2 - Mostrar listado de dispositivos");
-    		System.out.println(" 3 - Examen");
+    		System.out.println(" 3 - Metodo Android");
     		System.out.println(" 4 - Volver al menu principal");
     		System.out.println("Introducir opcion: ");
     		opc = sc.nextInt();
@@ -67,7 +67,7 @@ public class Menu {
     		System.out.println("\n \n ===   SUBMENU SMARTPHONES IOS  === \n");
     		System.out.println(" 1 - Alta de dispositivo");
     		System.out.println(" 2 - Mostrar listado de dispositivos ");
-    		System.out.println(" 3 - examen");
+    		System.out.println(" 3 - Interactuar por red social");
     		System.out.println(" 4 - Volver al menu principal");
     		System.out.println("Introducir opcion: ");
     		opc = sc.nextInt();
@@ -91,7 +91,7 @@ public class Menu {
 	    		Principal.mostrarListado();
 	    		break;
 	    	case 3:
-	    		Principal.Examen();
+	    		Principal.metodoAndroid();
 	    		break;
 	    	case 4:
 	    		menuPrincipal();
@@ -109,7 +109,7 @@ public class Menu {
 	    		Principal.mostrarListado();
 	    		break;
 	    	case 3:
-	    		Principal.Examen2();
+	    		Principal.Interactuar();
 	    		break;
 	    	case 4:
 	    		menuPrincipal();

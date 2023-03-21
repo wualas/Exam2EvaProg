@@ -36,9 +36,12 @@ public class DispositivoAndroid extends DispositivoMovil {
 		 + "\n  llamar()=" + llamar()
 		 + "\n  colgar()=" + colgar()
 		 + "\n  buscar()=" + buscar()
+		 + "\n  tomarFotografia()=" + tomarFotografia()
 		 + "\n";
 	}
-
+	public String tomarFotografia() {
+		return "Accediendo a la camara desde Smartphone Android";
+	}
 
 	/**
 	 * Metodos propios de la clase	
@@ -49,7 +52,7 @@ public class DispositivoAndroid extends DispositivoMovil {
 		}
 		@Override
 		public String colgar() {
-			return "Deslice para colgar la llamada desde un Smartphone Android”.";
+			return "Deslice para colgar la llamada desde un Smartphone Android.";
 		}
 		@Override
 		public String buscar() {
