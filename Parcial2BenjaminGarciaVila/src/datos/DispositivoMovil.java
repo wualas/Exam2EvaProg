@@ -1,6 +1,6 @@
 package datos;
 
-public class DispositivoMovil {
+public abstract class DispositivoMovil {
 //*************ATRIBUTOS**********
 	private String marca;  
 	private String tipo;
@@ -75,18 +75,13 @@ public void setColor(String color) {
 	this.color = color;
 }   
 /**
- * Metodos propios de la clase
+ * Metodos abstratos 
+ * 
  */
-public String llamar() {
-	return "llamada desde movil normal";
-		
-}
-public String colgar() {
-	return "colgar desde movil normal";
-}
-public String buscar() {
-	return "buscar desde movil normal";
-}
+public abstract String llamar();
+public abstract String colgar();
+public abstract String buscar();
+
 /**
  * metodo tostring
  */
